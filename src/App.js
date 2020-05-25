@@ -1,10 +1,18 @@
 import React from 'react';
 import './App.css';
 
-function App() {
-  return (
-    <h1 class="test">Hey! I'm first page</h1>    
-  );
+
+class App extends React.Component {
+  render() {
+    return (
+      <div className="App-upload-button">
+    
+      <button onClick={() => (console.log('Clicked'))}>Upload File</button>
+      
+      </div>
+  
+    );
+  }
 }
 
 export default App;
