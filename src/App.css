@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  background: #282828;
 }
 
 .App-logo {
@@ -28,15 +29,38 @@
   color: #61dafb;
 }
 
-.test {
-  background-color: gray;
-  text-align: center;
+.App-upload-button > label {
+  padding: 8px;
+  margin: 10px;
+  width: 130px;
+  display: block;
+  background: #98971A;
+  border-radius: 5px;
+
+  /*text style*/
+  color: #282828;
+  font-weight: 700;
 }
 
-.App-upload-button {
-  text-align: left;
-  padding-left: 5%;
-  padding-top: 5%;
+.App-upload-button > input {
+  display: none;
+}
+
+/*.visuallyhidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}*/
+
+.all-space {  
+  background: #282828;
 }
 
 @keyframes App-logo-spin {
