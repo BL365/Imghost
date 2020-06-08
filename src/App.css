@@ -33,7 +33,7 @@
   margin: 10px auto;
   width: 130px;
   display: block;
-  background: #98971A;
+  background: #b8bb26;
   border-radius: 5px;
 
   /*text style*/
@@ -42,8 +42,7 @@
 }
 
 .App-upload-button > label:hover {
-  background: #b8bb26;
-  transition: margin-left 4s;
+  background: #98971A;
 }
 
 .App-upload-button > input {
@@ -62,10 +61,6 @@
   clip: rect(0 0 0 0);
   overflow: hidden;
 }*/
-
-.all-space {  
-  background: #282828;
-}
 
 @keyframes App-logo-spin {
   from {
