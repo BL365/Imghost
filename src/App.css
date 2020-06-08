@@ -45,6 +45,10 @@
   background: #98971A;
 }
 
+.App-upload-button > label:active {
+  background: rgb(121, 121, 20);
+}
+
 .App-upload-button > input {
   display: none;
 }
