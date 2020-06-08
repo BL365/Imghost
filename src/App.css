@@ -28,11 +28,12 @@
   color: #61dafb;
 }
 
+/*button-upload*/
 .App-upload-button > label {
   padding: 8px;
   margin: 10px auto;
   width: 130px;
-  display: block;
+  display: flex;
   background: #b8bb26;
   border-radius: 5px;
 
@@ -41,6 +42,7 @@
   font-weight: 700;
 }
 
+/*button-upload animation*/
 .App-upload-button > label:hover {
   background: #98971A;
 }
