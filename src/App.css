@@ -41,6 +41,11 @@
   font-weight: 700;
 }
 
+.App-upload-button > label:hover {
+  background: #b8bb26;
+  transition: margin-left 4s;
+}
+
 .App-upload-button > input {
   display: none;
 }
