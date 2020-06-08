@@ -1,6 +1,5 @@
 .App {
   text-align: center;
-  background: #282828;
 }
 
 .App-logo {
@@ -31,7 +30,7 @@
 
 .App-upload-button > label {
   padding: 8px;
-  margin: 10px;
+  margin: 10px auto;
   width: 130px;
   display: block;
   background: #98971A;
