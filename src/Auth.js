@@ -29,7 +29,7 @@ class Auth extends React.Component {
                 <input type="text" name="login"
                 value = {this.state.login} onChange={this.handleChange} /><br />
                 <input type="password" name="password"
-                value = {this.state.password} onChange={this.handleChange} />
+                value = {this.state.password} onChange={this.handleChange} /><br />
                 <input type="submit" />
             </form>
         );
