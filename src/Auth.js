@@ -15,10 +15,10 @@ class Auth extends React.Component {
 
 
     handleSubmit(event) {
-        let auth_str = '{"username": "' + this.state.login + '", "password": "' + this.state.password + '"}'
+        let auth_str = '{"username":"' + this.state.login + '","password":"' + this.state.password + '"}'
         event.preventDefault();
         let xhr = new XMLHttpRequest();
-        xhr.open('POST', 'http://37.195.44.14/api/v1/users/login', true);
+        xhr.open('POST', 'http://37.195.44.14:80/api/v1/users/login', true);
         xhr.setRequestHeader("Content-Type", "application/json");
         xhr.send(auth_str);
     }
