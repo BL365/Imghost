@@ -1,15 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
-import Auth from './Auth';
+import Registration from './Registration';
+import { Router, Link } from 'react-router-dom';
+import {createBrowserHistory} from 'history';
 import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(
+const history = createBrowserHistory()
+
+ReactDOM.render((
   <React.StrictMode>
-    <App />
-    <Auth />
-  </React.StrictMode>,
+    <Router history={history}>
+      <Registration />
+    </Router>
+  </React.StrictMode>),
   document.getElementById('root')
 );
 
