@@ -1,14 +1,5 @@
 import React from 'react';
-import App from './App';
-import Auth from './Auth';
 import './Registration.css';
-import {
-    Route,
-    Switch,
-    Redirect,
-    withRouter
-  } from "react-router-dom"
-
 
 class Registration extends React.Component {
     constructor(props) {
@@ -22,7 +13,6 @@ class Registration extends React.Component {
         this.setState({[event.target.name]: event.target.value});
     }
 
-
     handleSubmit(event) {
         let registration_str = '{"username":"' + this.state.login + '","password":"' + this.state.password + '","email":' + this.state.email + '"}';
         event.preventDefault();
@@ -33,22 +23,17 @@ class Registration extends React.Component {
     };
 
     render() {
-        const { history } = this.props
         return (
         <div className="Registration">
-            <Switch>
-                <form onSubmit={this.handleSubmit}>
-                    <input type="text" name="email"
-                    value = {this.state.email} onChange={this.handleChange} /><br />
-                    <input type="text" name="login"
-                    value = {this.state.login} onChange={this.handleChange} /><br />
-                    <input type="password" name="password"
-                    value = {this.state.password} onChange={this.handleChange} /><br />
-                    <input type="submit" value="Зарегистрироваться" />
-                </form>
-                <Route history={history} path='/App' component={App} />
-                <Auth />
-            </Switch>
+            <form onSubmit={this.handleSubmit}>
+                <input type="text" name="email"
+                value = {this.state.email} onChange={this.handleChange} /><br />
+                <input type="text" name="login"
+                value = {this.state.login} onChange={this.handleChange} /><br />
+                <input type="password" name="password"
+                value = {this.state.password} onChange={this.handleChange} /><br />
+                <input type="submit" value="Зарегистрироваться" />
+            </form>
         </div>
         );
     };

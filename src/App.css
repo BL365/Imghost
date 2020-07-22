@@ -24,50 +24,6 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-/*button-upload*/
-.App-upload-button > label {
-  padding: 8px;
-  margin: 10px auto;
-  width: 130px;
-  display: flex;
-  background: #b8bb26;
-  border-radius: 5px;
-
-  /*text style*/
-  color: #282828;
-  font-weight: 700;
-}
-
-/*button-upload animation*/
-.App-upload-button > label:hover {
-  background: #98971A;
-}
-
-.App-upload-button > label:active {
-  background: rgb(121, 121, 20);
-}
-
-.App-upload-button > input {
-  display: none;
-}
-
-/*.visuallyhidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  border: 0;
-  padding: 0;
-  white-space: nowrap;
-  clip-path: inset(100%);
-  clip: rect(0 0 0 0);
-  overflow: hidden;
-}*/
-
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

@@ -11,3 +11,12 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+ul > li {
+  color: rgb(226, 226, 128);
+}
+
+.link-ul {
+  color: rgb(0, 0, 0);
+}
+

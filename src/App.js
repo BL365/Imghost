@@ -1,18 +1,40 @@
 import React from 'react';
 import './App.css';
-import CropOriginalOutlinedIcon from '@material-ui/icons/CropOriginalOutlined';
+import { Route, Switch, Link, withRouter } from 'react-router-dom';
+import Upload_Button from './Upload_Button';
+import Auth from './Auth';
+import Registration from './Registration';
 
 class App extends React.Component {
   render() {
+    const Main = () => (
+      <main>
+        <Switch>
+          <Route exact path='/' component={Upload_Button}/>
+          <Route path='/registration' component={Registration}/>
+          <Route path='/auth' component={Auth}/>
+        </Switch>
+      </main>
+    )
+    
+    const Header = () => (
+      <header>
+        <nav>
+          <ul>
+            <li><Link to='/'>Upload_Button</Link></li>
+            <li><Link to='/registration'>Registration</Link></li>
+            <li><Link to='/auth'>Auth</Link></li>
+          </ul>
+        </nav>
+      </header>
+    )
     return (
-      <div className="App-upload-button">
-      <label htmlFor="input">
-        <CropOriginalOutlinedIcon />Upload image
-      </label>
-      <input type="file" id="input" multiple />
-      </div>
-    );
+    <div>
+      <Header />
+      <Main />
+    </div>
+    )
   }
 }
 
-export default App;
+export default withRouter(App)
