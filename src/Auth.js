@@ -1,5 +1,6 @@
 import React from 'react';
 import './Auth.css';
+import { isEmpty } from 'underscore';
 
 class Auth extends React.Component {
     constructor(props) {
@@ -14,12 +15,26 @@ class Auth extends React.Component {
     };
 
     handleSubmit(event) {
+        //Отправка запроса авторизации
         event.preventDefault();
         let auth_str = '{"username":"' + this.state.login + '","password":"' + this.state.password + '"}';
-        let xhr = new XMLHttpRequest();
-        xhr.open('POST', 'http://37.195.44.14:80/api/v1/users/login', true);
-        xhr.setRequestHeader("Content-Type", "application/json");
-        xhr.send(auth_str);
+        let xhrAuth = new XMLHttpRequest();
+        xhrAuth.open('POST', 'http://37.195.44.14:7878/api/v1/users/login', true);
+        xhrAuth.setRequestHeader("Content-Type", "application/json");
+        xhrAuth.setRequestHeader("Accept", "application/json, */*;q=0.5");
+        xhrAuth.responseType = 'json';
+        xhrAuth.send(auth_str);
+
+        //Обработка ответа сервера
+        let responseObj;
+        xhrAuth.onload = function() {
+            responseObj = xhrAuth.response;
+        };
+        if (!isEmpty(responseObj.error)) {
+            alert('Ошибка авторизации: '+responseObj.error);            
+        } else {
+            alert('Успешно авторизован пользователь: '+responseObj.username+', mail: ' +responseObj.email); 
+        };
     };
 
     render() {

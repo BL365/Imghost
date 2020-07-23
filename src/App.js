@@ -21,9 +21,9 @@ class App extends React.Component {
       <header>
         <nav>
           <ul>
-            <li><Link to='/'>Upload_Button</Link></li>
-            <li><Link to='/registration'>Registration</Link></li>
-            <li><Link to='/auth'>Auth</Link></li>
+            <li><Link to='/' className="li">Upload</Link></li>
+            <li><Link to='/registration' className="li">Registration</Link></li>
+            <li><Link to='/auth' className="li">Auth</Link></li>
           </ul>
         </nav>
       </header>
