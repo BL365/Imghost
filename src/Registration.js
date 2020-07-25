@@ -15,21 +15,27 @@ class Registration extends React.Component {
     }
 
     handleSubmit(event) {
-        
+
+        //Проверка заполненности полей
+
+        if (isEmpty(this.state.email) || isEmpty(this.state.login) || isEmpty(this.state.password1) || isEmpty(this.state.password2)) {
+            console.log('не все поля заполнены'); // не все /*обязательные*/ поля заполнены
+            return false;
+        }
         //Проверка совпадения паролей
-            if (!isEmpty(this.state.password1) === true && !isEmpty(this.state.password2) 
+        if (!isEmpty(this.state.password1) === true && !isEmpty(this.state.password2)
         && this.state.password1 !== this.state.password2) {
-            alert('пароли не совпадают');
+            console.log('password не совпадают');
             return false;
         };
 
         //Отправка запроса на регистрацию
-        let registration_str = '{"username":"' + this.state.login + '","password":"' + this.state.password2 + '","email":' + this.state.email + '"}';
+        //сериализировать JSON
+        let registration_str = '{"username":"' + this.state.login + '","password":"' + this.state.password2 + '","email":"' + this.state.email + '"}';
         event.preventDefault();
         let xhrReg = new XMLHttpRequest();
         xhrReg.open('POST', 'http://37.195.44.14:7878/api/v1/users', true);
-        xhrReg.setRequestHeader("Content-Type", "application/json");
-        xhrReg.setRequestHeader("Accept", "application/json, */*;q=0.5");
+        xhrReg.setRequestHeader("Content-Type", "application/json", "Accept");
         xhrReg.responseType = 'json';
         xhrReg.send(registration_str);
 
@@ -37,13 +43,11 @@ class Registration extends React.Component {
         let responseObj;
         xhrReg.onload = function() {
             responseObj = xhrReg.response;
+            console.log('response: ', responseObj)
+            if (xhrReg.status===201) {
+                alert('Успешно зарегистрирован пользователь: '+responseObj.username+', mail: ' +responseObj.email);
+            };
         };
-        alert(responseObj);
-        // if (!isEmpty(responseObj.error)) {
-        //     alert('Ошибка регистрации: ');//+responseObj.error            
-        // } else {
-        //     alert('Успешно зарегистрирован пользователь: '); //+responseObj.username+', mail: ' +responseObj.email
-        // };
     };
 
     render() {

@@ -15,6 +15,7 @@ class Auth extends React.Component {
     };
 
     handleSubmit(event) {
+
         //Проверка заполненности полей
         if (isEmpty(this.state.login) || isEmpty(this.state.password)) {
             return false;
@@ -22,6 +23,7 @@ class Auth extends React.Component {
 
         //Отправка запроса авторизации
         event.preventDefault();
+        //сериализировать JSON
         let auth_str = '{"username":"' + this.state.login + '","password":"' + this.state.password + '"}';
         let xhrAuth = new XMLHttpRequest();
         xhrAuth.open('POST', 'http://37.195.44.14:7878/api/v1/users/login', true);
