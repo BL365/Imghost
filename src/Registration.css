@@ -1,0 +1,9 @@
+span#err {
+    color: red;
+    display: none;
+}
+
+span#err2 {
+    color: red;
+    display: none;
+}

@@ -15,24 +15,30 @@ class Registration extends React.Component {
     }
 
     handleSubmit(event) {
-
+        event.preventDefault();
         //Проверка заполненности полей
 
         if (isEmpty(this.state.email) || isEmpty(this.state.login) || isEmpty(this.state.password1) || isEmpty(this.state.password2)) {
             console.log('не все поля заполнены'); // не все /*обязательные*/ поля заполнены
+            document.getElementById("err").style.display = "block"
             return false;
-        }
+        } else {
+            document.getElementById("err").style.display = "none"
+        };
         //Проверка совпадения паролей
         if (!isEmpty(this.state.password1) === true && !isEmpty(this.state.password2)
         && this.state.password1 !== this.state.password2) {
             console.log('password не совпадают');
+            document.getElementById("err2").style.display = "block"
             return false;
+        } else {
+            document.getElementById("err2").style.display = "none"
         };
 
         //Отправка запроса на регистрацию
         //сериализировать JSON
         let registration_str = '{"username":"' + this.state.login + '","password":"' + this.state.password2 + '","email":"' + this.state.email + '"}';
-        event.preventDefault();
+
         let xhrReg = new XMLHttpRequest();
         xhrReg.open('POST', 'http://37.195.44.14:7878/api/v1/users', true);
         xhrReg.setRequestHeader("Content-Type", "application/json", "Accept");
@@ -62,6 +68,8 @@ class Registration extends React.Component {
                 value = {this.state.password} onChange={this.handleChange} /><br />
                 <input type="password" name="password2" placeholder="Re-enter password"
                 value = {this.state.password} onChange={this.handleChange} /><br />
+                <span id="err">Не все поля заполнены</span>
+                <span id="err2">Пароли не совпадают</span>
                 <input type="submit" value="Зарегистрироваться" />
             </form>
         </div>

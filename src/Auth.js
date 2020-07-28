@@ -15,14 +15,14 @@ class Auth extends React.Component {
     };
 
     handleSubmit(event) {
-
+        event.preventDefault();
         //Проверка заполненности полей
         if (isEmpty(this.state.login) || isEmpty(this.state.password)) {
+            document.getElementById("err").style.display = "block"
             return false;
         };
 
         //Отправка запроса авторизации
-        event.preventDefault();
         //сериализировать JSON
         let auth_str = '{"username":"' + this.state.login + '","password":"' + this.state.password + '"}';
         let xhrAuth = new XMLHttpRequest();
@@ -57,6 +57,7 @@ class Auth extends React.Component {
                 value = {this.state.login} onChange={this.handleChange} /><br />
                 <input type="password" name="password" placeholder="Password"
                 value = {this.state.password} onChange={this.handleChange} /><br />
+                <span id="err">Не все поля заполнены</span>
                 <input type="submit" value="Войти" />
             </form>
         );
