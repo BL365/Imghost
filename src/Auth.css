@@ -1,4 +1,102 @@
-span#err {
-    color: red;
+.auth-form-errors {
     display: none;
+    color: red;
 }
+
+.auth-container {
+    display: block;
+    height: 626px;
+    width: 100%;
+}
+
+div.auth-form-invisible {
+    width: 350px;
+    margin: 0 auto;
+}
+
+div.auth-form-visible {
+    background-color: #383535;
+    padding: 25px 20px 25px 20px;
+}
+
+.auth-input {
+    display: block;
+    height: 32px;
+    width: 100%;
+    padding: 5px 10px 5px 10px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+
+    color: #cccccc; /*цвет шрифта в обычном состоянии*/
+    font-size: 18px; /*Размер шрифта*/
+    font-family: Tahoma; /* Стиль шрифта*/
+
+    background: #282828 !important;
+    outline: none;
+    resize: none;
+    border: 1px solid transparent;
+
+}
+
+
+/*
+.auth-input-correct {
+    border: 1px solid #98971a;
+} */
+
+.auth-input-incorrect {
+    border: 1px solid red;
+}
+
+
+.auth-input:focus {
+    color: #ffe7e7;
+    border: 1px solid #ffff95;
+  }
+
+.btn {
+    position: relative;
+    float: right;
+    padding: 5px 10px 5px 10px;
+    margin-top: 5px;
+    border: 1px solid transparent;
+    background: #0c57e2;
+
+    color: #cccccc;
+    font-size: 18px; /*Размер шрифта*/
+    font-family: Tahoma; /* Стиль шрифта*/
+    text-align: center;
+    cursor: pointer;
+}
+
+.brd-rad-med {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.brd-rad-min {
+    border-top-left-radius: 1px;
+    border-top-right-radius: 1px;
+    border-bottom-right-radius: 1px;
+    border-bottom-left-radius: 1px;
+}
+
+.btm-elem {
+    margin-bottom: 0px;
+}
+
+/*  шпаргалки:
+    Позиционирование
+    Блочная модель
+    Типографика
+    Оформление
+    Анимация
+    Разное
+
+    переделать под микроклассы. Классы будут дублироваться для каждого компонента по мере надобности
+    <meta name="viewport" content="width=device-width, initial-scale=1"> //важно для нормального отображения на мобилке, не потерять
+*/
