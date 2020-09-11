@@ -40,21 +40,14 @@ div.auth-form-visible {
 
 }
 
-
-/*
-.auth-input-correct {
-    border: 1px solid #98971a;
-} */
-
 .auth-input-incorrect {
-    border: 1px solid red;
+    border-color: red;
 }
-
 
 .auth-input:focus {
     color: #ffe7e7;
     border: 1px solid #ffff95;
-  }
+}
 
 .btn {
     position: relative;
