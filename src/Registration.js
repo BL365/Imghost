@@ -18,21 +18,64 @@ class Registration extends React.Component {
         event.preventDefault();
         //Проверка заполненности полей
 
-        if (isEmpty(this.state.email) || isEmpty(this.state.login) || isEmpty(this.state.password1) || isEmpty(this.state.password2)) {
-            console.log('не все поля заполнены'); // не все /*обязательные*/ поля заполнены
+        if (isEmpty(this.state.email)) { // не все /*обязательные*/ поля заполнены
+            document.getElementById("email").classList.add("registration-input-incorrect");
             document.getElementById("err").style.display = "block"
             return false;
         } else {
+            document.getElementById("email").classList.remove("registration-input-incorrect");
             document.getElementById("err").style.display = "none"
         };
+
+        if (isEmpty(this.state.login)) {
+            document.getElementById("login").classList.add("registration-input-incorrect");
+            document.getElementById("err").style.display = "block"
+            return false;
+        } else {
+            document.getElementById("login").classList.remove("registration-input-incorrect");
+            document.getElementById("err").style.display = "none"
+        };
+
+        if (isEmpty(this.state.password1)) {
+            document.getElementById("password1").classList.add("registration-input-incorrect");
+            document.getElementById("err").style.display = "block"
+            return false;
+        } else {
+            document.getElementById("password1").classList.remove("registration-input-incorrect");
+            document.getElementById("err").style.display = "none"
+        };
+
+        if (isEmpty(this.state.password2)) {
+            document.getElementById("password2").classList.add("registration-input-incorrect");
+            document.getElementById("err").style.display = "block"
+            return false;
+        } else {
+            document.getElementById("password2").classList.remove("registration-input-incorrect");
+            document.getElementById("err").style.display = "none"
+        };
+
+        //Проверка длины пароля не меньше 8-ми символов
+        if (this.state.password1.length < 8) {
+            document.getElementById("err_length_pass").style.display = "block"
+            document.getElementById("password1").classList.add("registration-input-incorrect");
+            return false;
+        } else {
+
+            document.getElementById("password1").classList.remove("registration-input-incorrect");
+            document.getElementById("err_length_pass").style.display = "none"
+        };
+
         //Проверка совпадения паролей
         if (!isEmpty(this.state.password1) === true && !isEmpty(this.state.password2)
         && this.state.password1 !== this.state.password2) {
-            console.log('password не совпадают');
             document.getElementById("err2").style.display = "block"
+            document.getElementById("password1").classList.add("registration-input-incorrect");
+            document.getElementById("password2").classList.add("registration-input-incorrect");
             return false;
         } else {
             document.getElementById("err2").style.display = "none"
+            document.getElementById("password1").classList.remove("registration-input-incorrect");
+            document.getElementById("password2").classList.remove("registration-input-incorrect");
         };
 
         //Отправка запроса на регистрацию
@@ -57,24 +100,27 @@ class Registration extends React.Component {
     };
 
     render() {
-        return (
-        <div className="Registration">
+    return (
+    <div className="registration-container">
+        <div className="registration-form-invisible">
             <form onSubmit={this.handleSubmit}>
-                <input type="text" name="email" placeholder="E-mail"
-                value = {this.state.email} onChange={this.handleChange} /><br />
-                <input type="text" name="login" placeholder="Login"
-                value = {this.state.login} onChange={this.handleChange} /><br />
-                <input type="password" name="password1" placeholder="Password"
-                value = {this.state.password} onChange={this.handleChange} /><br />
-                <input type="password" name="password2" placeholder="Re-enter password"
-                value = {this.state.password} onChange={this.handleChange} /><br />
-                <span id="err">Не все поля заполнены</span>
-                <span id="err2">Пароли не совпадают</span>
-                <input type="submit" value="Зарегистрироваться" />
+                <div className="registration-form-visible brd-rad-med">
+                    <input type="email" name="email" placeholder="E-mail" className="registration-input registration-input-correct brd-rad-medium" id="email"
+                    value = {this.state.email} onChange={this.handleChange} />
+                    <input type="text" name="login" placeholder="Login" className="registration-input registration-input-correct brd-rad-medium" maxLength="255" id="login"
+                    value = {this.state.login} onChange={this.handleChange} />
+                    <input type="password" name="password1" placeholder="Password" className="registration-input registration-input-correct brd-rad-medium" id="password1"
+                    value = {this.state.password} onChange={this.handleChange} />
+                    <input type="password" name="password2" placeholder="Re-enter password" className="registration-input registration-input-correct brd-rad-medium btm-elem" id="password2"
+                    value = {this.state.password} onChange={this.handleChange} />
+                    <span id="err" className="registration_form_errors">Не все поля заполнены</span>
+                    <span id="err2" className="registration_form_errors">Пароли не совпадают</span>
+                    <span id="err_length_pass" className="registration_form_errors">Пароль должен быть не короче 8-ми символов</span>
+                </div>
+                <button className="btn brd-rad-min">Registry</button>
             </form>
         </div>
-        );
-    };
+    </div>)};
 };
 
 export default Registration;
